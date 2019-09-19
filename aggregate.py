@@ -120,8 +120,10 @@ def try_aggregate(conn):
 c = init_database();
 while(True):
     print(datetime.datetime.now(), " -- loading from data")
-    result = try_aggregate(c)
-    if result < 0:
-        print("no more data, waiting for 10 sec");
-        time.sleep(10)
-
+    try:
+        result = try_aggregate(c)
+        if result < 0:
+            print("no more data, waiting for 10 sec");
+            time.sleep(10)
+    except:
+        print("error occurred")

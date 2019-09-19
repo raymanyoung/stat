@@ -103,10 +103,14 @@ def collect(conn):
 c = init_database();
 while(True):
     print(datetime.datetime.now(), " -- loading from exchange")
-    success = collect(c)
-    if success: 
-        time.sleep(10)
-    else:
-        print("failed to retrieve data")
+    try:
+        success = collect(c)
+        if success: 
+            time.sleep(10)
+        else:
+            print("failed to retrieve data")
+            time.sleep(1)
+    except:
+        print("exception happens")
         time.sleep(1)
 

@@ -39,7 +39,7 @@ class RequestHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         query = parse.urlparse(self.path).query
-        if query != 'key=uJfi372jdfk':
+        if query.startswith('key=uJfi372jdfk') == False:
             return
 
         content = self.processData()
