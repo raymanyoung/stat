@@ -81,7 +81,7 @@ def load_test_json():
 
 def collect(conn):
     last_ts = load_last_timestamp(conn);
-    r = requests.get(url = 'https://otc-api.eiijo.cn/v1/data/trade-market?coinId=2&currency=1&tradeType=buy&currPage=1&payMethod=0&country=37&blockType=general&online=1&range=0&amount=')
+    r = requests.get(url = 'https://otc-api.eiijo.cn/v1/data/trade-market?coinId=2&currency=1&tradeType=buy&currPage=1&payMethod=0&country=37&blockType=general&online=1&range=0&amount=', timeout = 10)
 
     data = r.json()
     # data = load_test_json()
